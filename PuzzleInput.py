@@ -9,7 +9,6 @@ class ReadInput:
             f = open("input/day%s.txt" % (day))
             self.data = f.read().split("\n")
             f.close()
-            print("Reading File")
         except IOError:
             link = "https://adventofcode.com/2019/day/%s/input" % day
             req = request.Request(link)
@@ -21,4 +20,3 @@ class ReadInput:
             for line in self.data:
                 f.write("%s\n" % line)
             f.close()
-            print("Reading URL")
