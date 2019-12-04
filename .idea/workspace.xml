@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb0f9be9-5e55-4b20-a18a-2f167b3b584e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Day3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/AoC2019.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AoC2019.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PuzzleInput.py" beforeDir="false" afterPath="$PROJECT_DIR$/PuzzleInput.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Day4.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +14,7 @@
     <SUITE FILE_PATH="coverage/AoC_2019$Day2.coverage" NAME="Day2 Coverage Results" MODIFIED="1575301395998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AoC2019$Day1_1.coverage" NAME="Day1-1 Coverage Results" MODIFIED="1575236300842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AoC2019$Day3.coverage" NAME="Day3 Coverage Results" MODIFIED="1575352459782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/AoC2019$Day4.coverage" NAME="Day4 Coverage Results" MODIFIED="1575436779218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -30,11 +27,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Day3.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="427">
               <caret line="101" column="46" selection-start-line="101" selection-start-column="46" selection-end-line="101" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Day4.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -57,6 +63,14 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>m</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>n</replace>
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -68,6 +82,7 @@
         <option value="$PROJECT_DIR$/Day2.py" />
         <option value="$PROJECT_DIR$/PuzzleInput.py" />
         <option value="$PROJECT_DIR$/Day3.py" />
+        <option value="$PROJECT_DIR$/Day4.py" />
       </list>
     </option>
   </component>
@@ -114,7 +129,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Day3">
+  <component name="RunManager" selected="Python.Day4">
     <configuration name="Day1-1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AoC2019" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -181,8 +196,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Day4" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="AoC2019" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Day4.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Day4" />
         <item itemvalue="Python.Day3" />
         <item itemvalue="Python.Day2" />
         <item itemvalue="Python.Day1-1" />
@@ -201,12 +239,12 @@
       <updated>1575232614453</updated>
       <workItem from="1575232616022" duration="3677000" />
       <workItem from="1575299619795" duration="2750000" />
-      <workItem from="1575348970234" duration="3472000" />
+      <workItem from="1575348970234" duration="5191000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9899000" />
+    <option name="totallyTimeSpent" value="11618000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1394" height="916" extended-state="6" />
@@ -281,6 +319,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
           <caret line="101" column="46" selection-start-line="101" selection-start-column="46" selection-end-line="101" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Day4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
         </state>
       </provider>
     </entry>
