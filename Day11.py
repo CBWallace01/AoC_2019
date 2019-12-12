@@ -1,7 +1,8 @@
 from PuzzleInput import ReadInput
 from collections import defaultdict
+import numpy as np
 
-pz_input = ReadInput(9).data[0].split(",")
+pz_input = [int(x) for x in ReadInput(11).data[0].split(",")]
 
 
 class Intcode:
@@ -113,24 +114,47 @@ class Intcode:
 
 
 def part_a():
-    # pz_input = [1102,34915192,34915192,7,4,7,99,0]
-    comp = Intcode(pz_input)
-    output = comp.run(1)
-    last_output = output
+    x = 0
+    y = 0
+    direction = 0  # 0: up, 1: right, 2: down: 3: left
+    colors = defaultdict(lambda: (0, 0))
+    comp = Intcode(pz_input.copy())
+    output = comp.run(colors[x, y][0])
     while output is not None:
-        last_output = output
-        output = comp.run(1)
-    return last_output
+        colors[(x, y)] = (output, colors[(x, y)][1] + (1 if output != colors[(x, y)][1] else 0))
+        direction = (direction + (1 if comp.run(colors[x, y]) == 1 else -1)) % 4
+        if direction % 2 == 0:
+            y += 1 if direction == 0 else -1
+        else:
+            x += 1 if direction == 1 else -1
+        output = comp.run(colors[x, y][0])
+    return sum([1 for x in colors.values() if x[1] >= 1])
 
 
 def part_b():
-    comp = Intcode(pz_input)
-    output = comp.run(2)
-    last_output = output
+    x = 0
+    y = 0
+    direction = 0  # 0: up, 1: right, 2: down: 3: left
+    colors = defaultdict(lambda: (0, 0))
+    colors[(0, 0)] = (1, 0)
+    comp = Intcode(pz_input.copy())
+    output = comp.run(colors[x, y][0])
     while output is not None:
-        last_output = output
-        output = comp.run(2)
-    return last_output
+        colors[(x, y)] = (output, colors[(x, y)][1] + (1 if output != colors[(x, y)][1] else 0))
+        direction = (direction + (1 if comp.run(colors[x, y]) == 1 else -1)) % 4
+        if direction % 2 == 0:
+            y += 1 if direction == 0 else -1
+        else:
+            x += 1 if direction == 1 else -1
+        output = comp.run(colors[x, y][0])
+    x_offset = min([x[0] for x in colors.keys()])
+    y_offset = min([y[1] for y in colors.keys()])
+    registration = np.zeros((max([y[1] for y in colors.keys()])-y_offset+1, max([x[0] for x in colors.keys()])-x_offset+1))
+    for j in range(len(registration)):
+        for i in range(len(registration[j])):
+            registration[j, i] = colors[(i+x_offset, j+y_offset)][0]
+    return registration
+
 
 
 if __name__ == "__main__":
