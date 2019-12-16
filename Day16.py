@@ -2,7 +2,7 @@ from PuzzleInput import ReadInput
 
 pz_input = ReadInput(16).data[0]
 input_arr = [int(x) for x in pz_input]
-# input_arr = [int(x) for x in "80871224585914546619083218645595"]
+# input_arr = [int(x) for x in "03036732577212944063491565474664"]
 
 
 def part_a():
@@ -28,20 +28,16 @@ def part_a():
 
 def part_b():
     phase_input = input_arr.copy()
-    # num of phases
-    for i in range(100):
-        next_input = phase_input.copy()
-        # calculating new value for each index
-        for j in range(len(phase_input)):
-            value = 0
-            positives = [x for x in range(len(phase_input) * 10000) if x % (4 * (j+1)) == i]
-            next_input[j] = abs(value) % 10
-        phase_input = next_input
+    phase_input = (phase_input * 10000)[int(''.join(map(str, phase_input[:7]))):]
+    for _ in range(100):
+        suff_sum = 0
+        for i in range(len(phase_input)-1, -1, -1):
+            phase_input[i] = suff_sum = (suff_sum + phase_input[i]) % 10
     return phase_input[:8]
 
 
 if __name__ == "__main__":
-    print("Part A", part_a())
+    # print("Part A", part_a())
     print("Part B", part_b())
 
 # Notes:
