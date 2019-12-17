@@ -15,6 +15,7 @@ class Intcode:
         self.working_copy = self.logic.copy()
         self.i = 0
         self.relative_base = 0
+        self.input_idx = 0
 
     def reset(self):
         self.working_copy = self.logic.copy()
@@ -61,9 +62,11 @@ class Intcode:
             elif command % 10 == 3:
                 mode = 2 if (command // 100) % 10 == 2 else 0
                 if mode == 0:
-                    a_input[a_input[self.i + 1]] = input
+                    a_input[a_input[self.i + 1]] = input[self.input_idx]
+                    self.input_idx += 1
                 elif mode == 2:
-                    a_input[self.relative_base + a_input[self.i + 1]] = input
+                    a_input[self.relative_base + a_input[self.i + 1]] = input[self.input_idx]
+                    self.input_idx += 1
                 self.i += 2
             # Output
             elif command % 10 == 4:
@@ -125,13 +128,13 @@ def build_map(comp):
         if output == 46:
             pass
         elif output == 10:
-            row = 0
-            col += 1
+            row += 1
+            col = 0
             output = comp.run(0)
             continue
         else:
             scaff_map[(row, col)] = chr(output)
-        row += 1
+        col += 1
         output = comp.run(0)
     max_row = max([x[0] for x in scaff_map])
     max_col = max([x[1] for x in scaff_map])
@@ -151,24 +154,29 @@ def part_a():
 
 
 def part_b():
-    pass
+    run_code = pz_input.copy()
+    run_code[0] = 2
+    comp = Intcode(run_code)
+    main_routine = [ord(x) for x in "A,B,A,B,A,C,B,C,A,C"]
+    routine_a = [ord(x) for x in "L,6,R,12,L,6"]
+    routine_b = [ord(x) for x in "R,12,L,10,L,4,L,6"]
+    routine_c = [ord(x) for x in "L,10,L,10,L,4,L,6"]
+    comp_input = []
+    for routine in [main_routine, routine_a, routine_b, routine_c]:
+        for item in routine:
+            comp_input.append(item)
+        comp_input.append(10)
+    comp_input.append(ord("n"))
+    comp_input.append(10)
+    output = []
+    while True:
+        curr_output = comp.run(comp_input)
+        if curr_output is None:
+            return ord(output[-1])
+        else:
+            output.append(chr(curr_output))
 
 
 if __name__ == "__main__":
-    print("Part A", part_a())
+    # print("Part A", part_a())
     print("Part B", part_b())
-
-# 6 L 12 R
-# 6 L 12 R
-# 10 R 4 R 6 R
-# 6 L 12 R
-# 6 L 12 R
-# 10 R 4 R 6 R
-# 6 L 12 R
-# 6 R 10 R 10 R 4 R
-# 6 L 12 R
-# 10 R 4 R 6 R 10 R
-# 10 R 4 R 6 R
-# 6 L 12 R
-# 6 R 10 R
-# 10 R 4 R 6 R
