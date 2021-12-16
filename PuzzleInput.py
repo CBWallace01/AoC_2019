@@ -12,7 +12,7 @@ class ReadInput:
         except IOError:
             link = "https://adventofcode.com/2019/day/%s/input" % day
             req = request.Request(link)
-            req.add_header('Cookie', 'session=53616c7465645f5f5fd5983dbe5e3f1af2e4ba4828bed4482c300c055065bf646490dac542a8d0e218d849a86e50ff58')
+            req.add_header('Cookie', 'session=53616c7465645f5ff0e30cdabfc35a14068d564c8509509df88578c940c697709502bddebd4c3d5ec2952613cd8e0567')
             f = request.urlopen(req)
             self.data = f.read().decode('utf-8').split("\n")
             f.close()
